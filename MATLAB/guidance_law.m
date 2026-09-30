@@ -5,8 +5,8 @@ function F_thrust = guidance_law(t, x, params)
 %   params.target_dir  : 3x1 approach direction (unit vector, horizontal)
 %   params.thrust      : horizontal thrust magnitude (N)
 %   params.cruise_alt  : target cruise altitude (m)
-%   params.Kp_z        : altitude-hold proportional gain (N/m)
-%   params.Kd_z        : altitude-hold derivative gain   (N·s/m)
+%   params.Kp_z        : altitude-hold proportional gain (1/s²)  — F_z = m*(…+Kp_z*e…), m이 곱해지므로 N/m 아님
+%   params.Kd_z        : altitude-hold derivative gain   (1/s)
 %   params.A_evade     : lateral evasion accel amplitude (m/s²)  [evasive]
 %   params.A_evade_z   : vertical evasion accel amplitude (m/s²) [evasive]
 %   params.f_evade     : evasion frequency (Hz)                   [evasive]

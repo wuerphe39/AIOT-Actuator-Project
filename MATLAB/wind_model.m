@@ -5,9 +5,9 @@ function v_wind = wind_model(t, condition, z)
 %   z         : drone altitude (m), optional — default 30 m
 %
 %   [논문 근거]
-%   Siqueira, WVU (2018): 대기경계층 멱함수 프로파일
+%   Siqueira, WVU (2017): 대기경계층 멱함수 프로파일
 %       v(z) = v_ref * (z / z_ref)^alpha_w
-%       z_ref = 10 m, alpha_w = 0.14 (개방 지형 Hellmann 지수)
+%       z_ref = 10 m, alpha_w = 0.14 (개방 지형 Hellmann 지수 — 논문 직접 제시값 아님, 문헌 일반값)
 %   → 고도가 높을수록 풍속이 커지는 효과를 반영.
 %
 %   결정론적(deterministic) 모델 — ode45 재평가 시 일관성 보장.

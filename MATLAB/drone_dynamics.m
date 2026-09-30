@@ -7,10 +7,11 @@ function dxdt = drone_dynamics(t, x, wind_cond, params)
 %   운동방정식:
 %       m * dv/dt = F_thrust + F_drag - m*g*ẑ
 %
-%   [논문 근거 — Hattenberger et al., 2023, Sage/IJAV, SCIE]
-%   쿼드로터 항력은 비행 방향에 따라 다름:
-%       수평 항력: F_drag_h = -0.5*ρ*Cd_h*A*|v_rel_h|*v_rel_h  (Cd_h ≈ 0.47)
-%       수직 항력: F_drag_v = -0.5*ρ*Cd_v*A*|v_rel_v|*v_rel_v  (Cd_v ≈ 0.77)
+%   [논문 근거 — Hattenberger et al., 2023, Sage/Int. J. Micro Air Vehicles, SCIE]
+%   쿼드로터 항력은 비행 방향에 따라 다름 (방향별 항력 분리 근거):
+%       수평 항력: F_drag_h = -0.5*ρ*Cd_h*A*|v_rel_h|*v_rel_h
+%       수직 항력: F_drag_v = -0.5*ρ*Cd_v*A*|v_rel_v|*v_rel_v
+%   Cd_h=0.47, Cd_v=0.77, A=0.073 m²는 해당 논문 직접 제시값이 아닌 문헌 일반값 기반 가정값.
 %   단일 Cd를 쓰는 기존 모델 대비 수직 감속 특성을 더 정확히 재현.
 
 vel = x(4:6);
